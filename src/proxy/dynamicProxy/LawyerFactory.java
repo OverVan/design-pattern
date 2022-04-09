@@ -18,7 +18,7 @@ public class LawyerFactory {
 	}
 
 	public Object getLawyer() {
-		// 利用反射根据目标对象生成代理对象 传入目标对象的类加载器、所属类及事件处理器接口的匿名实现类的匿名对象
+		// 利用反射根据目标对象生成代理对象 传入目标对象的类加载器、实现的接口及事件处理器接口的匿名实现类的匿名对象
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),
 				new InvocationHandler() {
 					@Override
