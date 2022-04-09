@@ -2,15 +2,13 @@ package proxy.staticProxy;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * 测试类
- * 
- * @author Van
- */
 public class ClientTest {
 	@Test
 	void testStaticProxy() {
-		ITeacherDao teacherDaoProxy = new TeacherDaoProxy(new TeacherDaoImpl());
-		teacherDaoProxy.teach();
+		// 为不同目标对象切入相同的扩展工作
+		Actionable lawyer = new Lawyer(new Professor());
+		lawyer.litigate();
+		lawyer = new Lawyer(new Wife());
+		lawyer.litigate();
 	}
 }
