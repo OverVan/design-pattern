@@ -1,7 +1,7 @@
 package observer.ordinary;
 
 /**
- * 天气数据类
+ * 气象站类-数据发布方
  * 
  * @author Van
  */
@@ -10,72 +10,37 @@ public class WeatherData {
 	private float temperature;
 	private float pressure;
 	private float humidity;
-	// 第三方对象
-	private CurrentConditions currentConditions;
+	// 第三方平台对象 面向具体实现编程，高耦合，违反OCP，增加第三方平台类，会影响这个文件
+	private BaiduWeather baiduWeather;
+	private SinaWeather sinaWeather;
 
-	public WeatherData(CurrentConditions currentConditions) {
-		this.currentConditions = currentConditions;
+	public WeatherData(BaiduWeather baiduWeather, SinaWeather sinaWeather) {
+		this.baiduWeather = baiduWeather;
+		this.sinaWeather = sinaWeather;
 	}
 
 	/**
-	 * 温度接口
-	 * 
-	 * @return
-	 */
-	public float getTemperature() {
-		return temperature;
-	}
-
-	public void setTemperature(float temperature) {
-		this.temperature = temperature;
-	}
-
-	/**
-	 * 气压接口
-	 * 
-	 * @return
-	 */
-	public float getPressure() {
-		return pressure;
-	}
-
-	public void setPressure(float pressure) {
-		this.pressure = pressure;
-	}
-
-	/**
-	 * 湿度接口
-	 * 
-	 * @return
-	 */
-	public float getHumidity() {
-		return humidity;
-	}
-
-	public void setHumidity(float humidity) {
-		this.humidity = humidity;
-	}
-
-	/**
-	 * 自更新数据，然后同步到第三方
+	 * 测量并更新天气数据
 	 * 
 	 * @param temperature
 	 * @param pressure
 	 * @param humidity
 	 */
-	public void updateInnerData(float temperature, float pressure, float humidity) {
-		// 自更新
+	public void setMeasurements(float temperature, float pressure, float humidity) {
 		this.temperature = temperature;
 		this.pressure = pressure;
 		this.humidity = humidity;
-		// 同步
-		changeOuterData();
 	}
 
 	/**
-	 * 同步更新第三方数据
+	 * 天气数据已更新，通知第三方平台更新
+	 * 
+	 * @param temperature
+	 * @param pressure
+	 * @param humidity
 	 */
-	public void changeOuterData() {
-		currentConditions.update(getTemperature(), getPressure(), getHumidity());
+	public void measuermentsChanged() {
+		baiduWeather.update(temperature, pressure, humidity);
+		sinaWeather.update(temperature, pressure, humidity);
 	}
 }

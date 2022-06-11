@@ -1,19 +1,19 @@
 package adapter.classAdapter;
 
 /**
- * 适配器，src的子类兼dst的实现类
+ * 适配器
  * 
  * @author Van
  */
-public class VoltageAdapter extends Voltage220V implements IVoltage5V {
+public class VoltageAdapter extends Voltage220V implements Voltage5V {
 
 	@Override
 	public int output5V() {
-		// 原始电压
+		// 调用被适配者的方法，获取原始电压
 		int srcVoltage = output220V();
-		// 转换为目标电压
-		int dstVoltage = srcVoltage / 44;
-		return dstVoltage;
+		// 转换为目标电压，这里就把象征性的除法当转换了
+		int targetVoltage = srcVoltage / 44;
+		return targetVoltage;
 	}
 
 }

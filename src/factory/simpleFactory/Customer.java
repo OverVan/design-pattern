@@ -1,21 +1,12 @@
 package factory.simpleFactory;
 
-import factory.abstractFactory.BeijingFactory;
-import factory.abstractFactory.LondonFactory;
+import org.junit.jupiter.api.Test;
 
-/**
- * 冒充客户端
- * 
- * @author Van
- */
 public class Customer {
-
-	public static void main(String[] args) {
-		OrderPizza orderPizza = new OrderPizza();
-		// 订购北京产的
-		orderPizza.order(new BeijingFactory());
-		// 订购伦敦产的
-		orderPizza.order(new LondonFactory());
+	@Test
+	void testOrderPizza() {
+		SimplePizzaFactory factory = SimplePizzaFactory.getSimplePizzaFactory();
+		PizzaStore pizzaStore = new PizzaStore(factory);
+		pizzaStore.orderPizza("pepper");
 	}
-
 }

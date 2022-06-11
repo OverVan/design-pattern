@@ -1,8 +1,14 @@
 package observer.observer;
 
-public class SinaWeather implements IObserver {
+/**
+ * 具体的观察者类
+ * 
+ * @author Van
+ *
+ */
+public class SinaWeather implements Observer {
 
-	// 温度、气压、湿度
+	// 从发布者处获取数据
 	private float temperature;
 	private float pressure;
 	private float humidity;

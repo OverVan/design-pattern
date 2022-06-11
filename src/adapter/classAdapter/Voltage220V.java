@@ -1,7 +1,7 @@
 package adapter.classAdapter;
 
 /**
- * 被适配者src类
+ * 被适配者
  * 
  * @author Van
  */

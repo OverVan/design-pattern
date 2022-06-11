@@ -1,15 +1,19 @@
 package factory.abstractFactory;
 
-import factory.simpleFactory.OrderPizza;
+import org.junit.jupiter.api.Test;
 
-public class Customer {
+class Customer {
 
-	public static void main(String[] args) {
-		OrderPizza orderPizza = new OrderPizza();
-		// 订购北京产的
-		orderPizza.orderBeijing();
-		// 订购伦敦产的
-		orderPizza.orderLodon();
+	@Test
+	void testOrderPizza() {
+		// 武汉风味的奶酪披萨
+		PizzaIngredientFactory wuhanPizzaIngredientFactory = new WuhanPizzaIngredientFactory();
+		PizzaStore wuhanPizzaStore = new CheesePizzaStore(wuhanPizzaIngredientFactory);
+		wuhanPizzaStore.orderPizza();
+		// 北京风味的胡椒披萨
+		PizzaIngredientFactory beijingPizzaIngredientFactory = new BeijingPizzaIngredientFactory();
+		PizzaStore beijingPizzaStore = new PepperPizzaStore(beijingPizzaIngredientFactory);
+		beijingPizzaStore.orderPizza();
 	}
 
 }
