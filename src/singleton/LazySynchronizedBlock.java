@@ -1,10 +1,7 @@
 package singleton;
 
 /**
- * 懒汉式-线程不安全，同步代码块
- * 
- * @author Van
- *
+ * 懒汉式-同步代码块 synchronized的位置决定了线程的安全与不安全
  */
 public class LazySynchronizedBlock {
 	// 类加载时，实例不会被创建
@@ -14,11 +11,23 @@ public class LazySynchronizedBlock {
 
 	}
 
+	@Deprecated
+	public static LazySynchronizedBlock getInstanceUnsafe() {
+		if (instance == null) {
+			// 线程不安全
+			synchronized (LazySynchronizedBlock.class) {
+				instance = new LazySynchronizedBlock();
+			}
+		}
+		return instance;
+	}
+
 	// 要用到对象时才创建
 	public static LazySynchronizedBlock getInstance() {
-		if (instance == null) {
-			// 缩小同步控制范围，避免无畏的效率牺牲
-			synchronized (LazySynchronizedBlock.class) {
+		// 对象未创建，只能由Class实例作锁
+		synchronized (LazySynchronizedBlock.class) {
+			// 首线程已创建单例，后续线程就没必要阻塞了
+			if (instance == null) {
 				instance = new LazySynchronizedBlock();
 			}
 		}

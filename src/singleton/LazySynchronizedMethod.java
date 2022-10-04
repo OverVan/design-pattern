@@ -2,9 +2,6 @@ package singleton;
 
 /**
  * 懒汉式-同步方法
- * 
- * @author Van
- *
  */
 public class LazySynchronizedMethod {
 	// 类加载时，实例不会被创建

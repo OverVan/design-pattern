@@ -1,4 +1,4 @@
-package proxy.cglib;
+package proxy.cglibProxy;
 
 /**
  * 目标类 妻子 不实现任何接口

@@ -1,4 +1,4 @@
-package proxy.cglib;
+package proxy.cglibProxy;
 
 import org.junit.jupiter.api.Test;
 

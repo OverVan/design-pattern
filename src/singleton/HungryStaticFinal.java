@@ -2,9 +2,6 @@ package singleton;
 
 /**
  * 饿汉式-静态常量
- * 
- * @author Van
- *
  */
 public class HungryStaticFinal {
 	// final关键字不必要

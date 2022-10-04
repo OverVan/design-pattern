@@ -2,9 +2,6 @@ package singleton;
 
 /**
  * 饿汉式-静态代码块
- * 
- * @author Van
- *
  */
 public class HungryStaticBlock {
 	// 线程安全

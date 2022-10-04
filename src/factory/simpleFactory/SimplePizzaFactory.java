@@ -18,14 +18,14 @@ public class SimplePizzaFactory {
 	}
 
 	/**
-	 * 负责对象创建的方法 虽然将分离出可变部分，但仍然违反开闭原则
+	 * 负责对象创建的方法 虽然分离出可变部分，但仍然违反开闭原则，维护性差
 	 * 
 	 * @param type
 	 * @return
 	 */
 	public Pizza createPizza(String type) {
 		Pizza pizza = null;
-		// 来了新类，还是得修改
+		// 抽离出的部分仍是可变的：来了新类，还是得修改
 		switch (type) {
 		case "cheese":
 			pizza = new CheesePizza();

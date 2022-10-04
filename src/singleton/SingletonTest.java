@@ -7,6 +7,7 @@ public class SingletonTest {
 	void testHungryStaticFinal() {
 		HungryStaticFinal singleton1 = HungryStaticFinal.getInstance();
 		HungryStaticFinal singleton2 = HungryStaticFinal.getInstance();
+		// 默认toString方法，含地址
 		System.out.println(singleton1 == singleton2);
 	}
 

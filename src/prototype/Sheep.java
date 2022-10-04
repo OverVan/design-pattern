@@ -1,21 +1,24 @@
 package prototype;
 
-/**
- * 绵阳类
- * 
- * @author Van
- */
-public class Sheep implements Cloneable {
+import java.io.Serializable;
+
+public class Sheep implements Cloneable, Serializable {
+	private static final long serialVersionUID = -109289151584356701L;
 
 	private String name;
 	private int age;
-	private String color;
+	// 验证深浅拷贝
+	private Generation generation;
 
-	public Sheep(String name, int age, String color) {
+	public Sheep(String name, int age, Generation generation) {
 		super();
 		this.name = name;
 		this.age = age;
-		this.color = color;
+		this.generation = generation;
+	}
+
+	public Sheep() {
+		super();
 	}
 
 	public String getName() {
@@ -34,29 +37,21 @@ public class Sheep implements Cloneable {
 		this.age = age;
 	}
 
-	public String getColor() {
-		return color;
+	public Generation getGeneration() {
+		return generation;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setGeneration(Generation generation) {
+		this.generation = generation;
 	}
 
 	@Override
 	public String toString() {
-		return "Sheep [name=" + name + ", age=" + age + ", color=" + color + "]";
+		return "Sheep [name=" + name + ", age=" + age + ", generation=" + generation + "]";
 	}
 
 	@Override
-	public Sheep clone() {
-		Sheep sheep = null;
-		try {
-			sheep = (Sheep) super.clone();
-		} catch (CloneNotSupportedException e) {
-			System.out.println("克隆失败");
-			e.printStackTrace();
-		}
-		return sheep;
+	protected Sheep clone() throws CloneNotSupportedException {
+		return (Sheep) super.clone();
 	}
-
 }

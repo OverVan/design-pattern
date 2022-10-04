@@ -2,9 +2,6 @@ package singleton;
 
 /**
  * 原始懒汉式
- * 
- * @author Van
- *
  */
 public class Lazy {
 	// 类加载时，实例不会被创建
