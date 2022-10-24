@@ -2,8 +2,6 @@ package bridge.bridge;
 
 /**
  * 滑屏式手机
- * 
- * @author Van
  */
 public class Slide extends PhoneStyle {
 

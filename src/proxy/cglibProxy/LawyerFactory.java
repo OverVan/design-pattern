@@ -7,9 +7,7 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 /**
- * 代理对象工厂，为任何目标类的对象生成代理对象，且无需实现同一接口
- * 
- * @author Van
+ * 代理对象工厂，为任何目标类的对象生成代理对象，且代理类目标类均不用实现接口
  */
 public class LawyerFactory implements MethodInterceptor {
 
@@ -22,6 +20,7 @@ public class LawyerFactory implements MethodInterceptor {
 
 	/**
 	 * 重写MethodInterceptor接口的方法，调用目标对象的目标方法并扩展逻辑
+	 * 由于代理类是目标类的子类，自然就继承并能覆盖目标方法，那么代理对象调用目标方法，底层就执行本类对象的intercept回调
 	 */
 	@Override
 	public Object intercept(Object obj, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
@@ -34,16 +33,16 @@ public class LawyerFactory implements MethodInterceptor {
 	}
 
 	/**
-	 * 返回目标对象的代理对象
+	 * 获取目标对象的代理对象
 	 * 
 	 * @return
 	 */
 	public Object getProxyInstance() {
-		// 创建工具栏
+		// 创建增强器
 		Enhancer enhancer = new Enhancer();
-		// 设置父类
+		// 设置被代理类为父类
 		enhancer.setSuperclass(target.getClass());
-		// 设置回调函数
+		// 传入本类对象，间接设置intercept回调
 		enhancer.setCallback(this);
 		// 创建子类对象即代理对象
 		return enhancer.create();

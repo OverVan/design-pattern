@@ -10,7 +10,7 @@ class CglibProxyTest {
 		Wife wife = new Wife();
 		// 获取目标对象的代理对象
 		Wife wifeProxy = (Wife) new LawyerFactory(wife).getProxyInstance();
-		// 调用代理对象的方法，一经执行就会触发intercept方法
+		// 调用代理对象的方法，触发intercept回调
 		wifeProxy.divorce("离婚", "离婚万岁，结婚受罪");
 
 		Professor professor = new Professor();

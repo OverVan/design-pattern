@@ -2,8 +2,6 @@ package proxy.dynamicProxy;
 
 /**
  * 目标类 教授
- * 
- * @author Van
  */
 public class Professor implements Maintainable {
 

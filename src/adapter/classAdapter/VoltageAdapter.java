@@ -2,8 +2,6 @@ package adapter.classAdapter;
 
 /**
  * 适配器
- * 
- * @author Van
  */
 public class VoltageAdapter extends Voltage220V implements Voltage5V {
 

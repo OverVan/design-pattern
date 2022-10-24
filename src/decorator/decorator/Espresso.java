@@ -2,9 +2,6 @@ package decorator.decorator;
 
 /**
  * 具体的主体产品类-浓咖啡
- * 
- * @author Van
- *
  */
 public class Espresso extends Beverage {
 

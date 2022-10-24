@@ -89,7 +89,7 @@ public class Prototype {
 	}
 
 	/**
-	 * 级联调用clone方法深拷贝对象
+	 * 级联调用clone方法深拷贝对象，只能针对具体类
 	 * 
 	 * @param sheep
 	 * @return
@@ -98,7 +98,7 @@ public class Prototype {
 	public Sheep deepCopy(Sheep sheep) throws CloneNotSupportedException {
 		// 先浅拷贝
 		Sheep copy = sheep.clone();
-		// 再让引用类型的域引用新对象，级联调用clone方法
+		// 再让引用类型的域引用新对象，后者调clone方法
 		sheep.setGeneration(sheep.getGeneration().clone());
 		return copy;
 	}

@@ -1,9 +1,7 @@
 package decorator.decorator;
 
 /**
- * 抽象的附加产品类，继承并聚合抽象的主体产品类，充当装饰者
- * 
- * @author Van
+ * 抽象的附加产品类，继承并聚合抽象的主体产品类
  */
 public abstract class Topping extends Beverage {
 
@@ -15,7 +13,7 @@ public abstract class Topping extends Beverage {
 	 * @param description
 	 * @param price
 	 * @param count
-	 * @param beverage    构造器嵌套的关键
+	 * @param beverage    嵌套调用构造器的关键
 	 */
 	public Topping(String description, double price, int count, Beverage beverage) {
 		super(description, price, count);

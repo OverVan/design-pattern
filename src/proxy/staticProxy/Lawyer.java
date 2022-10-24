@@ -2,8 +2,6 @@ package proxy.staticProxy;
 
 /**
  * 代理类
- * 
- * @author Van
  */
 public class Lawyer implements Actionable {
 	// 多态，为多个目标类服务

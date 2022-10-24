@@ -2,8 +2,6 @@ package proxy.cglibProxy;
 
 /**
  * 目标类 教授 不实现任何接口
- * 
- * @author Van
  */
 public class Professor {
 

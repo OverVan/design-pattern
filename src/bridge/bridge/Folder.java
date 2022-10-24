@@ -2,8 +2,6 @@ package bridge.bridge;
 
 /**
  * 翻盖式手机
- * 
- * @author Van
  */
 public class Folder extends PhoneStyle {
 

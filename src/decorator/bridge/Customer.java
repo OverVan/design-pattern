@@ -1,29 +1,18 @@
 package decorator.bridge;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 class Customer {
-	void checkout(Beverage beverage) {
-		System.out.println(beverage.getDescription() + "：￥" + beverage.cost());
+	@Test
+	void testBagSoyDecaf() {
+		// 各种产品下的单品只能买一种，如买了豆浆就不能叠加买牛奶
+		Wrapper bag = new Bag(new Soy(new Decaf(1), 2), 1);
+		System.out.println(bag.getDescription() + "：\uffe5" + bag.cost());
 	}
 
 	@Test
-	void testSoyEspresso() {
-		List<Topping> toppings = new ArrayList<Topping>();
-		toppings.add(new Soy(1));
-		Beverage espresso = new Espresso(toppings, 2);
-		checkout(espresso);
-	}
-
-	@Test
-	void testMilkSoyDecaf() {
-		List<Topping> toppings = new ArrayList<Topping>();
-		toppings.add(new Milk(2));
-		toppings.add(new Soy(3));
-		Beverage decaf = new Decaf(toppings, 1);
-		checkout(decaf);
+	void testMilkEspresso() {
+		Milk milk = new Milk(new Espresso(2), 2);
+		System.out.println(milk.getDescription() + "：\uffe5" + milk.cost());
 	}
 }

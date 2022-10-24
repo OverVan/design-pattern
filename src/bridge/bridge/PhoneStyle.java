@@ -1,9 +1,7 @@
 package bridge.bridge;
 
 /**
- * 抽象层-抽象的手机样式类
- * 
- * @author Van
+ * 抽象层-手机样式
  */
 public abstract class PhoneStyle {
 	// 聚合实现层次-品牌接口

@@ -2,9 +2,6 @@ package decorator.decorator;
 
 /**
  * 抽象的主体产品类-饮料
- * 
- * @author Van
- *
  */
 public abstract class Beverage {
 	private String description;
@@ -19,7 +16,7 @@ public abstract class Beverage {
 	}
 
 	public String getDescription() {
-		return description;
+		return description + price + '\u00D7' + count;
 	}
 
 	public double getPrice() {

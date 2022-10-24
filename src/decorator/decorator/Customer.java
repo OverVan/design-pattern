@@ -9,7 +9,7 @@ class Customer {
 
 	@Test
 	void testBagSoyEspresso() {
-		// 联想起IO了吧，嵌套构造器，由内而外，从主体到附加
+		// 联想起IO，嵌套构造器，由内而外，从主体到附加
 		Beverage beverage = new Bag(1, new Soy(1, new Espresso(2)));
 		checkout(beverage);
 	}

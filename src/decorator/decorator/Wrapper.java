@@ -1,10 +1,7 @@
 package decorator.decorator;
 
 /**
- * 新增附加产品家族-包装
- * 
- * @author Van
- *
+ * 附加产品家族-包装
  */
 public abstract class Wrapper extends Beverage {
 	private Beverage beverage;
